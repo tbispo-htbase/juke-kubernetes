@@ -4,10 +4,6 @@ Deploy a Juke Kubernetes Cluster
 Quick Start
 -----------
 
-To deploy the cluster you can use :
-
-### Ansible
-
 #### Usage
 
     # Install dependencies from ``requirements.txt``
@@ -29,43 +25,6 @@ To deploy the cluster you can use :
     # installing packages and interacting with various systemd daemons.
     # Without -b the playbook will fail to run!
     ansible-playbook -i inventory/mycluster/hosts.ini --become --become-user=root cluster.yml
-
-Note: When Ansible is already installed via system packages on the control machine, other python packages installed via `sudo pip install -r requirements.txt` will go to a different directory tree (e.g. `/usr/local/lib/python2.7/dist-packages` on Ubuntu) from Ansible's (e.g. `/usr/lib/python2.7/dist-packages/ansible` still on Ubuntu).
-As a consequence, `ansible-playbook` command will fail with:
-```
-ERROR! no action detected in task. This often indicates a misspelled module name, or incorrect module path.
-```
-probably pointing on a task depending on a module present in requirements.txt (i.e. "unseal vault").
-
-One way of solving this would be to uninstall the Ansible package and then, to install it via pip but it is not always possible.
-A workaround consists of setting `ANSIBLE_LIBRARY` and `ANSIBLE_MODULE_UTILS` environment variables respectively to the `ansible/modules` and `ansible/module_utils` subdirectories of pip packages installation location, which can be found in the Location field of the output of `pip show [package]` before executing `ansible-playbook`.
-
-Documents
----------
-
--   [Requirements](#requirements)
--   [Kubespray vs ...](docs/comparisons.md)
--   [Getting started](docs/getting-started.md)
--   [Ansible inventory and tags](docs/ansible.md)
--   [Integration with existing ansible repo](docs/integration.md)
--   [Deployment data variables](docs/vars.md)
--   [DNS stack](docs/dns-stack.md)
--   [HA mode](docs/ha-mode.md)
--   [Network plugins](#network-plugins)
--   [Vagrant install](docs/vagrant.md)
--   [CoreOS bootstrap](docs/coreos.md)
--   [Debian Jessie setup](docs/debian.md)
--   [openSUSE setup](docs/opensuse.md)
--   [Downloaded artifacts](docs/downloads.md)
--   [Cloud providers](docs/cloud.md)
--   [OpenStack](docs/openstack.md)
--   [AWS](docs/aws.md)
--   [Azure](docs/azure.md)
--   [vSphere](docs/vsphere.md)
--   [Packet Host](docs/packet.md)
--   [Large deployments](docs/large-deployments.md)
--   [Upgrades basics](docs/upgrades.md)
--   [Roadmap](docs/roadmap.md)
 
 Supported Linux Distributions
 -----------------------------
