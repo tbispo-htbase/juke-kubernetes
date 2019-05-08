@@ -1,17 +1,5 @@
-<<<<<<< HEAD
-![Kubernetes Logo](https://raw.githubusercontent.com/kubernetes-sigs/kubespray/master/docs/img/kubernetes-logo.png)
-
-Deploy a Production Ready Kubernetes Cluster
+Deploy a Juke Kubernetes Cluster
 ============================================
-
-If you have questions, check the [documentation](https://kubespray.io) and join us on the [kubernetes slack](https://kubernetes.slack.com), channel **\#kubespray**.
-You can get your invite [here](http://slack.k8s.io/)
-
--   Can be deployed on **AWS, GCE, Azure, OpenStack, vSphere, Packet (bare metal), Oracle Cloud Infrastructure (Experimental), or Baremetal**
--   **Highly available** cluster
--   **Composable** (Choice of the network plugin for instance)
--   Supports most popular **Linux distributions**
--   **Continuous integration tests**
 
 Quick Start
 -----------
@@ -51,19 +39,6 @@ probably pointing on a task depending on a module present in requirements.txt (i
 
 One way of solving this would be to uninstall the Ansible package and then, to install it via pip but it is not always possible.
 A workaround consists of setting `ANSIBLE_LIBRARY` and `ANSIBLE_MODULE_UTILS` environment variables respectively to the `ansible/modules` and `ansible/module_utils` subdirectories of pip packages installation location, which can be found in the Location field of the output of `pip show [package]` before executing `ansible-playbook`.
-
-### Vagrant
-
-For Vagrant we need to install python dependencies for provisioning tasks.
-Check if Python and pip are installed:
-
-    python -V && pip -V
-
-If this returns the version of the software, you're good to go. If not, download and install Python from here <https://www.python.org/downloads/source/>
-Install the necessary requirements
-
-    sudo pip install -r requirements.txt
-    vagrant up
 
 Documents
 ---------
@@ -131,11 +106,6 @@ Supported Components
 
 Note: The list of validated [docker versions](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.13.md) was updated to 1.11.1, 1.12.1, 1.13.1, 17.03, 17.06, 17.09, 18.06. kubeadm now properly recognizes Docker 18.09.0 and newer, but still treats 18.06 as the default supported version. The kubelet might break on docker's non-standard version numbering (it no longer uses semantic versioning). To ensure auto-updates don't break your cluster look into e.g. yum versionlock plugin or apt pin).
 
-Note 2: rkt support as docker alternative is limited to control plane (etcd and
-kubelet). Docker is still used for Kubernetes cluster workloads and network
-plugins' related OS services. Also note, only one of the supported network
-plugins can be deployed for a given single cluster.
-
 Requirements
 ------------
 
@@ -189,27 +159,6 @@ The choice is defined with the variable `kube_network_plugin`. There is also an
 option to leverage built-in cloud provider networking instead.
 See also [Network checker](docs/netcheck.md).
 
-Community docs and resources
-----------------------------
-
--   [kubernetes.io/docs/getting-started-guides/kubespray/](https://kubernetes.io/docs/getting-started-guides/kubespray/)
--   [kubespray, monitoring and logging](https://github.com/gregbkr/kubernetes-kargo-logging-monitoring) by @gregbkr
--   [Deploy Kubernetes w/ Ansible & Terraform](https://rsmitty.github.io/Terraform-Ansible-Kubernetes/) by @rsmitty
--   [Deploy a Kubernetes Cluster with Kubespray (video)](https://www.youtube.com/watch?v=N9q51JgbWu8)
-
-Tools and projects on top of Kubespray
---------------------------------------
-
--   [Digital Rebar Provision](https://github.com/digitalrebar/provision/blob/master/doc/integrations/ansible.rst)
--   [Terraform Contrib](https://github.com/kubernetes-sigs/kubespray/tree/master/contrib/terraform)
-
-CI Tests
---------
-
-[![Build graphs](https://gitlab.com/kubespray-ci/kubernetes-incubator__kubespray/badges/master/build.svg)](https://gitlab.com/kubespray-ci/kubernetes-incubator__kubespray/pipelines)
-
-CI/end-to-end tests sponsored by Google (GCE)
-See the [test matrix](docs/test_cases.md) for details.
 =======
 # juke-kubernetes
 >>>>>>> a6f61bc13ba64db5086b41753748f9f4d7352a88
