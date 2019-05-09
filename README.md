@@ -69,6 +69,15 @@ Deploy required access controls to dashboard:
 kubectl apply -f https://raw.githubusercontent.com/htbase/juke-kubernetes/master/kube-dashboard-access.yaml
 ```
 
+Starting Services
+------------
+
+In order to start the services, the following command should be executed on the Kubernetes Master nodes
+```
+kubectl proxy --address 0.0.0.0 --accept-hosts '.*'
+```
+The command should always be running on background, so exiting the session won't impact the services
+
 Supported Linux Distributions
 -----------------------------
 
