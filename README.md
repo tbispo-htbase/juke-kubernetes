@@ -116,7 +116,3 @@ You can choose between 6 network plugins. (default: `calico`, except Vagrant use
 The choice is defined with the variable `kube_network_plugin`. There is also an
 option to leverage built-in cloud provider networking instead.
 See also [Network checker](docs/netcheck.md).
-
-=======
-# juke-kubernetes
->>>>>>> a6f61bc13ba64db5086b41753748f9f4d7352a88
