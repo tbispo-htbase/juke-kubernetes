@@ -66,8 +66,8 @@ Deploying the Kubernetes dashboard:
 
 Deploy required access controls to dashboard:
 ```
-kubectl apply -f https://raw.githubusercontent.com/htbase/juke-kubernetes/master/kube-dashboard-access.yaml"
-
+kubectl apply -f https://raw.githubusercontent.com/htbase/juke-kubernetes/master/kube-dashboard-access.yaml
+```
 
 Supported Linux Distributions
 -----------------------------
