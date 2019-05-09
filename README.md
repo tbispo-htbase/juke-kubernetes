@@ -38,7 +38,7 @@ You may want to add worker, master or etcd nodes to your existing cluster. This 
         ansible-playbook -i inventory/mycluster/hosts.ini scale.yml -b -v \
           --private-key=~/.ssh/private_key
 
-Remove nodes
+Removing nodes
 ------------
 
 You may want to remove **worker** nodes to your existing cluster. This can be done by re-running the `remove-node.yml` playbook. First, all nodes will be drained, then stop some kubernetes services and delete some certificates, and finally execute the kubectl command to delete these nodes. This can be combined with the add node function, This is generally helpful when doing something like autoscaling your clusters. Of course if a node is not working, you can remove the node and install it again.
