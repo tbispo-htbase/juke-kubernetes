@@ -24,7 +24,7 @@ Quick Start
     # The option `-b` is required, as for example writing SSL keys in /etc/,
     # installing packages and interacting with various systemd daemons.
     # Without -b the playbook will fail to run!
-    ansible-playbook -i inventory/mycluster/hosts.ini --become --become-user=root cluster.yml
+    ansible-playbook -i inventory/mycluster/hosts.yml --become --become-user=root cluster.yml
 
 Supported Linux Distributions
 -----------------------------
