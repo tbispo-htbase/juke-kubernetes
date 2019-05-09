@@ -55,6 +55,19 @@ ansible-playbook -i inventory/mycluster/hosts.ini remove-node.yml -b -v \
   --extra-vars "node=nodename,nodename2"
 ```
 
+Deploying Dashboard
+------------
+
+In order to deploy the Kubernetes dashboard, the following command has to be executed inside the Kubernetes Master node:
+
+Deploying the Kubernetes dashboard:
+
+    kubectl apply -f https://raw.githubusercontent.com/htbase/juke-kubernetes/master/kubernetes-dashboard.yaml
+
+Deploy required access controls to dashboard:
+```
+kubectl apply -f https://raw.githubusercontent.com/htbase/juke-kubernetes/master/kube-dashboard-access.yaml"
+
 
 Supported Linux Distributions
 -----------------------------
