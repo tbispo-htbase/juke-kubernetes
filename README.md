@@ -26,6 +26,36 @@ Quick Start
     # Without -b the playbook will fail to run!
     ansible-playbook -i inventory/mycluster/hosts.yml --become --become-user=root cluster.yml
 
+
+Adding nodes
+------------
+
+You may want to add worker, master or etcd nodes to your existing cluster. This can be done by re-running the `cluster.yml` playbook, or you can target the bare minimum needed to get kubelet installed on the worker and talking to your masters. This is especially helpful when doing something like autoscaling your clusters.
+
+-   Add the new worker node to your inventory in the appropriate group.
+-   Run the ansible-playbook command, substituting `cluster.yml` for `scale.yml`:
+
+        ansible-playbook -i inventory/mycluster/hosts.ini scale.yml -b -v \
+          --private-key=~/.ssh/private_key
+
+Remove nodes
+------------
+
+You may want to remove **worker** nodes to your existing cluster. This can be done by re-running the `remove-node.yml` playbook. First, all nodes will be drained, then stop some kubernetes services and delete some certificates, and finally execute the kubectl command to delete these nodes. This can be combined with the add node function, This is generally helpful when doing something like autoscaling your clusters. Of course if a node is not working, you can remove the node and install it again.
+
+Add worker nodes to the list under kube-node if you want to delete them.
+
+    ansible-playbook -i inventory/mycluster/hosts.ini remove-node.yml -b -v \
+        --private-key=~/.ssh/private_key
+
+Use `--extra-vars "node=<nodename>,<nodename2>"` to select the node you want to delete.
+```
+ansible-playbook -i inventory/mycluster/hosts.ini remove-node.yml -b -v \
+  --private-key=~/.ssh/private_key \
+  --extra-vars "node=nodename,nodename2"
+```
+
+
 Supported Linux Distributions
 -----------------------------
 
