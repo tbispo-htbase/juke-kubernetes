@@ -68,6 +68,10 @@ Deploy required access controls to dashboard:
 ```
 kubectl apply -f https://raw.githubusercontent.com/htbase/juke-kubernetes/master/kube-dashboard-access.yaml
 ```
+Once deployed and services are started (please refer to section below), the dashboard will be made available at:
+```
+http://<master1-IP>:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+```
 
 Starting Services
 ------------
