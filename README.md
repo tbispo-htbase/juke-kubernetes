@@ -35,7 +35,7 @@ You may want to add worker, master or etcd nodes to your existing cluster. This 
 -   Add the new worker node to your inventory in the appropriate group.
 -   Run the ansible-playbook command, substituting `cluster.yml` for `scale.yml`:
 
-        ansible-playbook -i inventory/mycluster/hosts.ini scale.yml -b -v \
+        ansible-playbook -i inventory/mycluster/hosts.yml scale.yml -b -v \
           --private-key=~/.ssh/private_key
 
 Removing nodes
